@@ -22,82 +22,29 @@
 
   .wrap { width: 100%; max-width: 380px; }
 
-  /* 步驟指示 */
-  .stepbar {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-    margin-bottom: 18px;
-    font-size: 12.5px;
-    color: #B5A28D;
-  }
-  .stepbar span { display: flex; align-items: center; gap: 6px; }
-  .stepbar .on { color: #5A4736; font-weight: 700; }
-  .stepbar .dot {
-    width: 20px; height: 20px;
-    border-radius: 50%;
-    background: #E4D5C2;
-    color: #96826F;
-    font-size: 11px; font-weight: 700;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .stepbar .on .dot { background: #B08A64; color: #FFF9F1; }
-
   .card {
     background: #FFFFFF;
     border-radius: 16px;
     padding: 20px;
     margin-bottom: 16px;
   }
-  .card h2 { font-size: 15.5px; margin-bottom: 4px; }
-  .hint { font-size: 12.5px; color: #96826F; margin-bottom: 14px; }
+  .card h2 { font-size: 16.5px; margin-bottom: 14px; }
 
-  .chips { display: flex; flex-wrap: wrap; gap: 10px; }
-  .chip {
-    border: 2px solid #E4D5C2;
-    background: #FBF7F1;
-    color: #6E5B48;
-    border-radius: 14px;
-    padding: 12px 14px;
-    font-size: 14.5px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all .15s;
-    font-family: inherit;
-  }
-  .chip .em { font-size: 20px; display: block; text-align: center; margin-bottom: 4px; }
-  .chip.cat { flex: 1 1 calc(33% - 10px); text-align: center; }
-  .chip:active { transform: scale(.96); }
-  .chip.sel { border-color: #B08A64; background: #B08A64; color: #FFF9F1; }
-
-  .hidden { display: none; }
-
-  /* 養護結果 */
-  .result h3 {
-    font-size: 17px;
-    margin-bottom: 2px;
-  }
-  .result .crumb { font-size: 12.5px; color: #96826F; margin-bottom: 14px; }
-  .sec { margin-bottom: 14px; }
-  .sec:last-child { margin-bottom: 0; }
-  .sec .t {
-    font-size: 13px;
-    font-weight: 700;
+  .step { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 13px; }
+  .step:last-child { margin-bottom: 0; }
+  .num {
+    flex: none;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: #F3EAE0;
     color: #B08A64;
-    margin-bottom: 6px;
+    font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
   }
-  .sec ul { list-style: none; }
-  .sec li {
-    font-size: 14px;
-    line-height: 1.55;
-    color: #6E5B48;
-    padding-left: 20px;
-    position: relative;
-    margin-bottom: 5px;
-  }
-  .sec li::before { content: "•"; position: absolute; left: 6px; color: #C9AE8F; }
-  .sec.no li::before { content: "✗"; color: #C06A50; font-size: 12px; top: 1px; }
-  .life {
+  .step p { font-size: 14px; line-height: 1.55; color: #6E5B48; }
+  .step p b { color: #5A4736; }
+
+  .tip {
     background: #F3EAE0;
     border-radius: 12px;
     padding: 12px 14px;
@@ -106,18 +53,45 @@
     color: #7A6650;
     margin-top: 14px;
   }
-  .back {
-    display: inline-block;
-    margin-top: 16px;
-    background: none;
-    border: none;
-    color: #96826F;
-    font-size: 13.5px;
-    font-weight: 700;
-    cursor: pointer;
-    text-decoration: underline;
-    font-family: inherit;
+
+  /* 塑身褲/衣 特別卡 */
+  .special {
+    background: #FFFFFF;
+    border: 2.5px solid #B08A64;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+    position: relative;
   }
+  .special .badge {
+    position: absolute;
+    top: -13px; left: 18px;
+    background: #B08A64;
+    color: #FFF9F1;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 12px;
+  }
+  .special h2 { font-size: 16.5px; margin: 6px 0 6px; }
+  .special .why {
+    font-size: 13px;
+    color: #96826F;
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+  .dont-list { list-style: none; margin-top: 12px; }
+  .dont-list li {
+    font-size: 14px;
+    line-height: 1.55;
+    color: #A0503C;
+    padding-left: 22px;
+    position: relative;
+    margin-bottom: 6px;
+  }
+  .dont-list li::before { content: "✗"; position: absolute; left: 4px; font-weight: 700; }
+  .dt { font-size: 13px; font-weight: 700; color: #B08A64; margin-top: 14px; margin-bottom: 6px; }
 
   .renew {
     background: #B08A64;
@@ -145,41 +119,45 @@
 
   <div class="brand">MURO 暮若</div>
   <h1>洗滌保養指南 🧺</h1>
-  <div class="sub">選你的單品，看專屬養護方法</div>
+  <div class="sub">洗對方法，衣物多穿一年</div>
 
   <div class="wrap">
 
-    <div class="stepbar">
-      <span id="sb1" class="on"><i class="dot">1</i>選品類</span>
-      <span>›</span>
-      <span id="sb2"><i class="dot">2</i>選材質</span>
-      <span>›</span>
-      <span id="sb3"><i class="dot">3</i>日常養護</span>
+    <!-- 手洗 -->
+    <div class="card">
+      <h2>🖐️ 手洗這樣洗</h2>
+      <div class="step"><div class="num">1</div><p><b>冷水＋中性洗劑：</b>30°C 以下清水加少量洗劑，浸泡 5-10 分鐘</p></div>
+      <div class="step"><div class="num">2</div><p><b>輕壓搓洗：</b>用指腹輕壓，重點髒污處多按幾下，不要大力搓</p></div>
+      <div class="step"><div class="num">3</div><p><b>清水沖淨：</b>換 2-3 次水，把洗劑沖乾淨</p></div>
+      <div class="step"><div class="num">4</div><p><b>毛巾吸水：</b>用乾毛巾包起來按壓吸水，不要擰轉</p></div>
+      <div class="step"><div class="num">5</div><p><b>陰乾：</b>陰涼通風處晾乾，避免太陽直曬</p></div>
     </div>
 
-    <!-- 步驟1 品類 -->
-    <div class="card" id="catCard">
-      <h2>你要保養哪一件？</h2>
-      <div class="hint">點選品類</div>
-      <div class="chips" id="catChips"></div>
+    <!-- 機洗 -->
+    <div class="card">
+      <h2>🌀 機洗這樣洗</h2>
+      <div class="step"><div class="num">1</div><p><b>裝洗衣袋：</b>貼身衣物一定要裝，避免勾紗變形</p></div>
+      <div class="step"><div class="num">2</div><p><b>冷水＋輕柔模式：</b>水溫 30°C 以下，選「輕柔／手洗模式」</p></div>
+      <div class="step"><div class="num">3</div><p><b>深淺色分開：</b>深色第一次洗先單獨洗，防染色</p></div>
+      <div class="step"><div class="num">4</div><p><b>跳過烘乾：</b>洗完直接拿出來晾，不進烘乾行程</p></div>
+      <div class="tip">💡 柔軟精少用：會在機能布料上留下一層膜，越洗越不透氣。</div>
     </div>
 
-    <!-- 步驟2 材質 -->
-    <div class="card hidden" id="matCard">
-      <h2 id="matTitle">材質是哪一種？</h2>
-      <div class="hint">看洗標或商品頁的成分標示</div>
-      <div class="chips" id="matChips"></div>
-    </div>
-
-    <!-- 步驟3 養護 -->
-    <div class="card hidden result" id="resCard">
-      <h3 id="resTitle"></h3>
-      <div class="crumb" id="resCrumb"></div>
-      <div class="sec"><div class="t">🫧 怎麼洗</div><ul id="resWash"></ul></div>
-      <div class="sec"><div class="t">🌤️ 怎麼晾</div><ul id="resDry"></ul></div>
-      <div class="sec no"><div class="t">⛔ 千萬不要</div><ul id="resDont"></ul></div>
-      <div class="life" id="resLife"></div>
-      <button class="back" onclick="reset()">↺ 重新選擇</button>
+    <!-- 塑身褲/衣 特別說明 -->
+    <div class="special">
+      <div class="badge">⭐ 塑身褲／塑身衣 特別注意</div>
+      <h2>它跟一般衣服不一樣！</h2>
+      <div class="why">塑身褲的支撐力來自「彈性纖維」，怕熱、怕拉、怕柔軟精。洗錯一次，彈性就回不來了。</div>
+      <div class="step"><div class="num">1</div><p><b>只建議手洗：</b>30°C 以下冷水＋中性洗劑，浸泡不超過 10 分鐘</p></div>
+      <div class="step"><div class="num">2</div><p><b>褲底、腰際輕壓洗：</b>用指腹按壓即可，不要用刷子</p></div>
+      <div class="step"><div class="num">3</div><p><b>毛巾按壓吸水後平放陰乾：</b>不要用衣架掛（會被拉長變形）</p></div>
+      <div class="dt">⛔ 塑身褲的三大禁忌</div>
+      <ul class="dont-list">
+        <li>高溫烘乾——彈性纖維直接陣亡，加壓力全失</li>
+        <li>柔軟精、漂白水——腐蝕彈性纖維</li>
+        <li>用力擰轉、拉扯——變形就回不去了</li>
+      </ul>
+      <div class="tip">💡 建議準備 2-3 件輪替，讓彈性纖維「休息回彈」。彈性變鬆、起毛球＝支撐力下降，約 3-6 個月檢視一次。</div>
     </div>
 
     <div class="renew">
@@ -192,193 +170,5 @@
 
   <footer>MURO暮若｜有問題請回 LINE 找真人客服</footer>
 
-<script>
-const DATA = {
-  "衣服": { em: "👕", mats: {
-    "棉質": {
-      wash: ["40°C 以下翻面機洗，深色衣物分開洗", "一般洗衣精即可，深色可用護色款"],
-      dry: ["淺色可日曬，深色陰乾防退色", "拉平下擺再晾，減少皺褶"],
-      dont: ["長時間浸泡（易染色）", "高溫烘乾（會縮水）"],
-      life: "💡 領口鬆、起毛球、變黃洗不掉，就是換新的時候。"
-    },
-    "機能排汗（聚酯纖維）": {
-      wash: ["冷水或 30°C 以下清洗", "運動後盡快洗，汗酸留久會臭"],
-      dry: ["通風處陰乾，乾很快", "避免太陽直曬"],
-      dont: ["柔軟精（會堵住排汗孔隙，越洗越不透氣）", "烘乾、熨燙"],
-      life: "💡 排汗力變差、異味洗不掉，代表纖維孔隙已飽和，該換了。"
-    },
-    "莫代爾／天絲": {
-      wash: ["30°C 以下輕柔機洗或手洗", "裝洗衣袋保護，用中性洗劑"],
-      dry: ["平放或對折晾，避免垂墜拉長", "陰涼處風乾"],
-      dont: ["用力擰轉（纖維滑軟易變形）", "烘乾機"],
-      life: "💡 莫代爾親膚但嬌貴，好好洗可以維持柔軟一年以上。"
-    },
-    "雪紡／蕾絲": {
-      wash: ["冷水手洗最保險", "中性洗劑輕壓洗，勿搓揉"],
-      dry: ["用衣架陰乾，滴乾即可", "蕾絲平放晾防勾紗"],
-      dont: ["跟粗糙衣物、拉鍊混洗（勾紗）", "漂白水"],
-      life: "💡 勾紗、蕾絲變形難復原，收納時單獨放或用洗衣袋隔開。"
-    }
-  }},
-  "塑身褲/衣": { em: "🩱", mats: {
-    "尼龍＋彈性纖維（萊卡）": {
-      wash: ["30°C 以下手洗，中性洗劑", "浸泡不超過 10 分鐘，指腹輕壓搓洗", "用乾毛巾包起按壓吸水"],
-      dry: ["陰涼通風處平放晾乾", "避免衣架撐拉變形"],
-      dont: ["高溫烘乾（彈性纖維頭號殺手）", "柔軟精、漂白水", "用力擰轉"],
-      life: "💡 加壓力道變鬆、布面起毛球＝支撐力下降，建議 3-6 個月檢視一次。"
-    },
-    "涼感紗／蠶絲蛋白紗": {
-      wash: ["冷水快洗，勿長時間浸泡", "中性或絲品專用洗劑"],
-      dry: ["陰乾，避光", "平放晾，保持版型"],
-      dont: ["熱水（破壞涼感因子）", "酵素洗衣粉", "烘乾"],
-      life: "💡 涼感效果會隨洗滌次數遞減，感覺不涼了就是換新訊號。"
-    },
-    "加壓網布": {
-      wash: ["可裝洗衣袋輕柔機洗，冷水", "跳過脫水或選最短脫水"],
-      dry: ["平放陰乾", "勿掛曬（重量會拉鬆網布）"],
-      dont: ["烘乾行程", "與魔鬼氈、拉鍊衣物同洗（勾紗）"],
-      life: "💡 網布勾紗、壓力變鬆就無法回復，洗衣袋是它最好的朋友。"
-    }
-  }},
-  "下身": { em: "👖", mats: {
-    "棉質褲裙": {
-      wash: ["40°C 以下翻面機洗", "深色首次單獨洗，防染色"],
-      dry: ["翻面晾，深色陰乾", "褲頭朝上夾晾，乾得快"],
-      dont: ["高溫烘乾（縮腰圍）", "長時間浸泡"],
-      life: "💡 鬆緊帶失去彈性、膝蓋處鬆垮，就差不多該退役了。"
-    },
-    "牛仔": {
-      wash: ["翻面冷水洗，能少洗就少洗", "第一次先用白醋水定色"],
-      dry: ["翻面陰乾，避免直曬退色"],
-      dont: ["頻繁清洗（越洗越退色）", "烘乾（會縮）", "漂白"],
-      life: "💡 牛仔褲其實 3-5 次穿著洗一次就夠，局部髒污擦拭即可。"
-    },
-    "西裝料（聚酯混紡）": {
-      wash: ["洗衣袋輕柔機洗，冷水", "重要場合褲建議送洗"],
-      dry: ["褲夾倒掛晾乾，自然垂出褲線"],
-      dont: ["用力擰轉（摺痕難救）", "高溫烘乾"],
-      life: "💡 收納用褲架掛好，膝蓋鼓包、油亮感出現就該汰換。"
-    },
-    "針織裙褲": {
-      wash: ["30°C 以下裝洗衣袋輕柔洗", "中性洗劑"],
-      dry: ["一定要平放晾乾", "掛晾會被自身重量拉長"],
-      dont: ["衣架掛晾", "烘乾", "尖銳物勾扯"],
-      life: "💡 針織下身收納建議摺疊平放，不要掛，才不會變形。"
-    }
-  }},
-  "襪子": { em: "🧦", mats: {
-    "棉襪": {
-      wash: ["翻面洗，40°C 以內", "可機洗，建議裝洗衣袋不易失蹤"],
-      dry: ["可日曬殺菌", "襪口朝上夾晾"],
-      dont: ["穿超過一天不洗", "與內衣褲混洗（衛生考量）"],
-      life: "💡 腳跟變薄、鬆口滑落就換新，棉襪是消耗品別捨不得。"
-    },
-    "機能壓力襪": {
-      wash: ["30°C 以下手洗，中性洗劑", "輕壓洗，勿搓揉加壓段"],
-      dry: ["陰乾，平放或對折晾"],
-      dont: ["烘乾（壓力值直接報廢）", "擰轉", "曝曬"],
-      life: "💡 壓力襪的加壓效果約 3-6 個月遞減，變鬆就失去意義了。"
-    },
-    "羊毛襪": {
-      wash: ["冷水＋羊毛專用洗劑手洗", "輕壓洗 2-3 分鐘即可"],
-      dry: ["平放陰乾", "勿掛晾"],
-      dont: ["熱水（縮水氈化不可逆）", "一般洗衣粉", "烘乾"],
-      life: "💡 羊毛襪怕熱怕搓，洗對方法可以陪你好幾個冬天。"
-    }
-  }},
-  "內褲": { em: "🩲", mats: {
-    "棉質": {
-      wash: ["建議當天手洗，40°C 以內", "抗菌洗衣精或中性洗劑", "與襪子、外衣分開洗"],
-      dry: ["通風處晾乾，可適度日曬殺菌"],
-      dont: ["隔夜堆放（細菌滋生）", "洗衣機與襪子混洗", "烘乾高溫"],
-      life: "💡 貼身衣物建議 3-6 個月汰換：鬆緊帶鬆、布料變薄就該換。"
-    },
-    "莫代爾": {
-      wash: ["30°C 以下手洗或洗衣袋輕柔洗", "中性洗劑"],
-      dry: ["陰乾，避免直曬變硬"],
-      dont: ["高溫（易變形失去彈性）", "漂白水"],
-      life: "💡 莫代爾柔軟親膚，但彈性衰退比棉快，留意鬆緊狀態。"
-    },
-    "無縫尼龍": {
-      wash: ["冷水手洗，輕壓洗", "中性洗劑"],
-      dry: ["陰乾，乾很快"],
-      dont: ["擰轉（無縫結構一變形就回不去）", "烘乾"],
-      life: "💡 無縫款邊緣捲邊、鬆脫就是壽命到了，直接換新。"
-    },
-    "蠶絲": {
-      wash: ["冷水＋絲品專用洗劑手洗", "輕柔快洗，勿浸泡"],
-      dry: ["陰乾避光（日曬會黃化）"],
-      dont: ["酵素洗衣粉（會分解蛋白纖維）", "熱水", "烘乾"],
-      life: "💡 蠶絲嬌貴但透氣頂級，專用洗劑值得投資。"
-    }
-  }}
-};
-
-const $ = id => document.getElementById(id);
-let curCat = null;
-
-function init() {
-  const box = $('catChips');
-  Object.keys(DATA).forEach(cat => {
-    const b = document.createElement('button');
-    b.className = 'chip cat';
-    b.innerHTML = `<span class="em">${DATA[cat].em}</span>${cat}`;
-    b.onclick = () => pickCat(cat, b);
-    box.appendChild(b);
-  });
-}
-
-function pickCat(cat, btn) {
-  curCat = cat;
-  document.querySelectorAll('#catChips .chip').forEach(c => c.classList.remove('sel'));
-  btn.classList.add('sel');
-  $('sb2').classList.add('on');
-  $('sb3').classList.remove('on');
-  $('resCard').classList.add('hidden');
-  $('matTitle').textContent = `${cat} 的材質是？`;
-  const box = $('matChips');
-  box.innerHTML = '';
-  Object.keys(DATA[cat].mats).forEach(m => {
-    const b = document.createElement('button');
-    b.className = 'chip';
-    b.textContent = m;
-    b.onclick = () => pickMat(m, b);
-    box.appendChild(b);
-  });
-  $('matCard').classList.remove('hidden');
-  $('matCard').scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
-
-function pickMat(mat, btn) {
-  document.querySelectorAll('#matChips .chip').forEach(c => c.classList.remove('sel'));
-  btn.classList.add('sel');
-  $('sb3').classList.add('on');
-  const d = DATA[curCat].mats[mat];
-  $('resTitle').textContent = `${DATA[curCat].em} ${mat} 養護法`;
-  $('resCrumb').textContent = `${curCat} › ${mat}`;
-  fill('resWash', d.wash);
-  fill('resDry', d.dry);
-  fill('resDont', d.dont);
-  $('resLife').textContent = d.life;
-  $('resCard').classList.remove('hidden');
-  $('resCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function fill(id, arr) {
-  $(id).innerHTML = arr.map(x => `<li>${x}</li>`).join('');
-}
-
-function reset() {
-  curCat = null;
-  document.querySelectorAll('.chip').forEach(c => c.classList.remove('sel'));
-  $('matCard').classList.add('hidden');
-  $('resCard').classList.add('hidden');
-  $('sb2').classList.remove('on');
-  $('sb3').classList.remove('on');
-  $('catCard').scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
-
-init();
-</script>
 </body>
 </html>
