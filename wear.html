@@ -8,140 +8,213 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
-    background: #F3EAE0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 32px 20px 48px;
-    color: #5A4736;
+    background: #F3EAE0; min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 32px 20px 48px; color: #5A4736;
   }
   .brand { font-size: 15px; letter-spacing: 4px; color: #96826F; margin-bottom: 6px; }
   h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
   .sub { font-size: 13px; color: #96826F; margin-bottom: 20px; }
-
   .wrap { width: 100%; max-width: 380px; }
-
-  /* 開場提醒 */
   .alert {
-    background: #B08A64;
-    color: #FFF9F1;
-    border-radius: 16px;
-    padding: 18px 20px;
-    margin-bottom: 16px;
-    font-size: 14px;
-    line-height: 1.65;
+    background: #B08A64; color: #FFF9F1; border-radius: 16px;
+    padding: 18px 20px; margin-bottom: 16px; font-size: 14px; line-height: 1.65;
   }
-  .alert b { font-size: 15.5px; display: block; margin-bottom: 4px; }
-
-  .card {
-    background: #FFFFFF;
-    border-radius: 16px;
-    padding: 20px;
-    margin-bottom: 16px;
-  }
+  .alert b { font-size: 15.5px; }
+  .card { background: #FFF; border-radius: 16px; padding: 20px; margin-bottom: 16px; }
   .card h2 { font-size: 16.5px; margin-bottom: 4px; }
   .hint { font-size: 12.5px; color: #96826F; margin-bottom: 14px; }
-
-  .step { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 13px; }
-  .step:last-child { margin-bottom: 0; }
+  .stepcard { margin-bottom: 18px; }
+  .stepcard:last-child { margin-bottom: 0; }
+  .fig {
+    background: #FBF7F1; border-radius: 14px; padding: 10px 8px 6px; margin-bottom: 10px;
+  }
+  .fig svg { width: 100%; height: auto; display: block; }
+  .step { display: flex; gap: 12px; align-items: flex-start; }
   .num {
-    flex: none;
-    width: 24px; height: 24px;
-    border-radius: 50%;
-    background: #F3EAE0;
-    color: #B08A64;
-    font-size: 13px; font-weight: 700;
+    flex: none; width: 24px; height: 24px; border-radius: 50%;
+    background: #F3EAE0; color: #B08A64; font-size: 13px; font-weight: 700;
     display: flex; align-items: center; justify-content: center;
   }
   .step p { font-size: 14px; line-height: 1.55; color: #6E5B48; }
   .step p b { color: #5A4736; }
-
   .tip {
-    background: #F3EAE0;
-    border-radius: 12px;
-    padding: 12px 14px;
-    font-size: 13px;
-    line-height: 1.6;
-    color: #7A6650;
-    margin-top: 14px;
+    background: #F3EAE0; border-radius: 12px; padding: 12px 14px;
+    font-size: 13px; line-height: 1.6; color: #7A6650; margin-top: 14px;
   }
-
-  /* NG 卡 */
   .ng { border: 2.5px solid #D8917B; }
   .ng h2 { color: #A0503C; }
   .ng-list { list-style: none; }
   .ng-list li {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #A0503C;
-    padding-left: 24px;
-    position: relative;
-    margin-bottom: 9px;
+    font-size: 14px; line-height: 1.6; color: #A0503C;
+    padding-left: 24px; position: relative; margin-bottom: 9px;
   }
   .ng-list li:last-child { margin-bottom: 0; }
   .ng-list li::before { content: "✗"; position: absolute; left: 4px; font-weight: 700; }
   .ng-list li b { color: #8A3E2C; }
-
-  .next {
-    background: #B08A64;
-    border-radius: 16px;
-    padding: 20px;
-    text-align: center;
-    color: #FFF9F1;
-  }
+  .next { background: #B08A64; border-radius: 16px; padding: 20px; text-align: center; color: #FFF9F1; }
   .next h3 { font-size: 17px; margin-bottom: 6px; }
   .next p { font-size: 13px; opacity: .9; margin-bottom: 14px; line-height: 1.5; }
   .next a {
-    display: inline-block;
-    background: #FFF9F1;
-    color: #5A4736;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 700;
-    padding: 12px 28px;
-    border-radius: 24px;
+    display: inline-block; background: #FFF9F1; color: #5A4736; text-decoration: none;
+    font-size: 15px; font-weight: 700; padding: 12px 28px; border-radius: 24px;
   }
   footer { margin-top: 24px; font-size: 12px; color: #96826F; }
 </style>
 </head>
 <body>
-
   <div class="brand">MURO 暮若</div>
   <h1>穿脫教學 👖</h1>
   <div class="sub">正確穿法不勾破，塑形效果才到位</div>
-
   <div class="wrap">
 
     <div class="alert">
-      <b>⚠️ 穿之前先看這個！</b>
+      <b>⚠️ 穿之前先看這個！</b><br>
       塑身褲比一般褲子緊是正常的，千萬不要像穿絲襪一樣「硬拉上來」——布料一旦勾破或過度拉扯，彈性就回不去了。記住口訣：<b>「從下往上，捲著穿」</b>。
     </div>
 
     <div class="card">
       <h2>👖 塑身褲 正確穿法</h2>
       <div class="hint">全程坐著穿最省力</div>
-      <div class="step"><div class="num">1</div><p><b>先做準備：</b>摘下戒指手鍊、確認指甲沒有尖角，手部乾燥（乳液未乾會黏布料）</p></div>
-      <div class="step"><div class="num">2</div><p><b>捲到褲底：</b>雙手伸進褲筒，把褲身由上往下捲，捲到剩褲底的位置</p></div>
-      <div class="step"><div class="num">3</div><p><b>坐著套入雙腳：</b>像穿襪子一樣，雙腳先穿過褲底</p></div>
-      <div class="step"><div class="num">4</div><p><b>分段往上捲：</b>小腿 → 膝蓋 → 大腿，一段一段慢慢往上推，不要一口氣拉到底</p></div>
-      <div class="step"><div class="num">5</div><p><b>站起來調整：</b>將褲子提到腰際，確認褲底貼合、無下滑感</p></div>
-      <div class="step"><div class="num">6</div><p><b>撫平布料：</b>雙手由下往上撫平大腿與腹部布料，把該包的地方「請」進去，完成！</p></div>
+      <div class="stepcard">
+        <div class="fig"><svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg">
+<circle cx="52" cy="78" r="17" fill="none" stroke="#B08A64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M42 63 L52 48 L62 63" fill="none" stroke="#B08A64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="97" y="60" width="44" height="34" rx="17" fill="none" stroke="#B08A64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M107 60 v-12 h24 v12 M107 94 v12 h24 v-12" fill="none" stroke="#B08A64" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M170 95 c0 -28 6 -48 14 -48 c8 0 14 20 14 48 z" fill="none" stroke="#B08A64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M174 68 c3 -6 17 -6 20 0" fill="none" stroke="#B08A64" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="30" y="126" font-family="Noto Sans CJK TC" font-size="13" fill="#6E5B48">戒指</text><text x="100" y="126" font-family="Noto Sans CJK TC" font-size="13" fill="#6E5B48">手錶手鍊</text><text x="168" y="126" font-family="Noto Sans CJK TC" font-size="13" fill="#6E5B48">指甲</text>
+<text x="30" y="30" font-family="Noto Sans CJK TC" font-size="13" fill="#6E5B48" font-weight="bold">先摘下、檢查 →</text>
+</svg></div>
+        <div class="step"><div class="num">1</div><p><b>先做準備：</b>摘下戒指手鍊、確認指甲沒有尖角，手部乾燥（乳液未乾會黏布料）</p></div>
+      </div>
+      <div class="stepcard">
+        <div class="fig"><svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg">
+<path d="M75 22 h90" stroke="#B08A64" stroke-width="7" stroke-linecap="round" fill="none" opacity="0.25"/>
+<path d="M75 22 c0 20 4 34 10 44 M165 22 c0 20 -4 34 -10 44" fill="none" stroke="#B08A64" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.25" stroke-dasharray="4 7"/>
+<ellipse cx="120" cy="88" rx="52" ry="10" fill="#EFE3D3" stroke="#B08A64" stroke-width="4"/>
+<ellipse cx="120" cy="100" rx="55" ry="10" fill="#EFE3D3" stroke="#B08A64" stroke-width="4"/>
+<ellipse cx="120" cy="112" rx="52" ry="10" fill="#EFE3D3" stroke="#B08A64" stroke-width="4"/>
+<path d="M48 30 V72 M41 63 L48 72 L55 63" fill="none" stroke="#6E5B48" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M192 30 V72 M185 63 L192 72 L199 63" fill="none" stroke="#6E5B48" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="78" y="50" font-family="Noto Sans CJK TC" font-size="13" fill="#6E5B48">由上往下捲</text>
+</svg></div>
+        <div class="step"><div class="num">2</div><p><b>捲到褲底：</b>雙手伸進褲筒，把褲身由上往下捲，捲到剩褲底的位置</p></div>
+      </div>
+      <div class="stepcard">
+        <div class="fig"><svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg">
+<circle cx="62" cy="24" r="13" fill="none" stroke="#B08A64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M62 38 c-4 10 -6 20 -6 30 l0 4 h36 l40 34 l14 4" fill="none" stroke="#B08A64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M34 72 v50 M56 122 h-30" fill="none" stroke="#B08A64" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="168" cy="116" rx="26" ry="7" fill="#EFE3D3" stroke="#B08A64" stroke-width="4"/>
+<ellipse cx="168" cy="125" rx="29" ry="7" fill="#EFE3D3" stroke="#B08A64" stroke-width="4"/>
+<path d="M138 96 c12 2 20 8 24 14" fill="none" stroke="#6E5B48" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M154 102 L163 109 L153 114" fill="none" stroke="#6E5B48" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="120" y="36" font-family="Noto Sans CJK TC" font-size="13" fill="#6E5B48">坐著套入雙腳</text>
+</svg></div>
+        <div class="step"><div class="num">3</div><p><b>坐著套入雙腳：</b>像穿襪子一樣，雙腳先穿過褲底</p></div>
+      </div>
+      <div class="stepcard">
+        <div class="fig"><svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg">
+<path d="M96 18 c-3 34 -3 68 4 100 h12 M144 18 c3 34 3 68 -4 100 h-12" fill="none" stroke="#B08A64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="120" cy="96" rx="34" ry="9" fill="#EFE3D3" stroke="#B08A64" stroke-width="4"/>
+<ellipse cx="120" cy="106" rx="36" ry="9" fill="#EFE3D3" stroke="#B08A64" stroke-width="4"/>
+<path d="M178 108 V88 M171 97 L178 88 L185 97" fill="none" stroke="#6E5B48" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M178 76 V56 M171 65 L178 56 L185 65" fill="none" stroke="#6E5B48" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M178 44 V24 M171 33 L178 24 L185 33" fill="none" stroke="#6E5B48" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="192" y="104" font-family="Noto Sans CJK TC" font-size="13" fill="#6E5B48">小腿</text>
+<text x="192" y="72" font-family="Noto Sans CJK TC" font-size="13" fill="#6E5B48">膝蓋</text>
+<text x="192" y="40" font-family="Noto Sans CJK TC" font-size="13" fill="#6E5B48">大腿</text>
+<text x="14" y="60" font-family="Noto Sans CJK TC" font-size="13" fill="#6E5B48">一段一段</text>
+<text x="14" y="78" font-family="Noto Sans CJK TC" font-size="13" fill="#6E5B48">慢慢捲</text>
+</svg></div>
+        <div class="step"><div class="num">4</div><p><b>分段往上捲：</b>小腿 → 膝蓋 → 大腿，一段一段慢慢往上推，不要一口氣拉到底</p></div>
+      </div>
+      <div class="stepcard">
+        <div class="fig"><svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg">
+<path d="M85 20 c-2 18 -8 28 -12 40 c-5 16 -2 46 6 62 M155 20 c2 18 8 28 12 40 c5 16 2 46 -6 62" fill="none" stroke="#B08A64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M78 60 c26 12 58 12 84 0 l4 14 c-28 14 -64 14 -92 0 z" fill="#EFE3D3" stroke="#B08A64" stroke-width="4"/>
+<circle cx="70" cy="80" r="9" fill="#E8C9A8" stroke="#B08A64" stroke-width="3.5"/>
+<circle cx="170" cy="80" r="9" fill="#E8C9A8" stroke="#B08A64" stroke-width="3.5"/>
+<path d="M40 92 V62 M33 71 L40 62 L47 71" fill="none" stroke="#6E5B48" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M200 92 V62 M193 71 L200 62 L207 71" fill="none" stroke="#6E5B48" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="88" y="120" font-family="Noto Sans CJK TC" font-size="13" fill="#6E5B48">提到腰際貼合</text>
+</svg></div>
+        <div class="step"><div class="num">5</div><p><b>站起來調整：</b>將褲子提到腰際，確認褲底貼合、無下滑感</p></div>
+      </div>
+      <div class="stepcard">
+        <div class="fig"><svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg">
+<path d="M85 16 c-2 18 -8 28 -12 40 c-5 16 -2 48 6 66 M155 16 c2 18 8 28 12 40 c5 16 2 48 -6 66" fill="none" stroke="#B08A64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M100 96 c-2 -14 4 -24 10 -24 c4 0 6 4 5 10 M140 96 c2 -14 -4 -24 -10 -24 c-4 0 -6 4 -5 10" fill="#E8C9A8" stroke="#B08A64" stroke-width="3.5"/>
+<path d="M98 60 c4 -12 10 -18 14 -16 M142 60 c-4 -12 -10 -18 -14 -16" fill="none" stroke="#6E5B48" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M104 44 L110 38 M136 44 L130 38" fill="none" stroke="#6E5B48" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="70" y="128" font-family="Noto Sans CJK TC" font-size="13" fill="#6E5B48">由下往上撫平</text>
+</svg></div>
+        <div class="step"><div class="num">6</div><p><b>撫平布料：</b>雙手由下往上撫平大腿與腹部布料，把該包的地方「請」進去，完成！</p></div>
+      </div>
       <div class="tip">💡 第一次穿會覺得緊，是加壓布料的正常現象。如果緊到勒痛、麻，可能是尺寸太小，先別拆吊牌，回 LINE 找客服換尺寸。</div>
     </div>
 
     <div class="card">
       <h2>🩱 塑身衣 正確穿法</h2>
-      <div class="step"><div class="num">1</div><p><b>由下往上穿：</b>從腳套入往上拉（不要從頭套），比較不會拉傷肩帶</p></div>
-      <div class="step"><div class="num">2</div><p><b>先套到腰，再上肩帶：</b>衣身定位後，才把肩帶掛上，避免肩帶吃力過度</p></div>
-      <div class="step"><div class="num">3</div><p><b>身體前傾撥整：</b>微微前傾，把胸部撥進罩杯、腋下的肉往前收</p></div>
-      <div class="step"><div class="num">4</div><p><b>撫平背部：</b>雙手往後把背部布料撫平，不捲邊、不空杯就完成</p></div>
+      <div class="stepcard">
+        <div class="fig"><svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg">
+<path d="M86 30 c8 8 60 8 68 0 l6 30 c-8 10 -8 30 -2 44 l-4 18 h-22 l-6 -14 -6 14 h-22 l-4 -18 c6 -14 6 -34 -2 -44 z" fill="#EFE3D3" stroke="#B08A64" stroke-width="4"/>
+<path d="M92 30 v-14 M148 30 v-14" fill="none" stroke="#B08A64" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M120 96 V48 M113 57 L120 48 L127 57" fill="none" stroke="#6E5B48" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="164" y="76" font-family="Noto Sans CJK TC" font-size="13" fill="#6E5B48">從腳套入</text>
+<text x="164" y="94" font-family="Noto Sans CJK TC" font-size="13" fill="#6E5B48">往上拉</text>
+</svg></div>
+        <div class="step"><div class="num">1</div><p><b>由下往上穿：</b>從腳套入往上拉（不要從頭套），比較不會拉傷肩帶</p></div>
+      </div>
+      <div class="stepcard">
+        <div class="fig"><svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg">
+<circle cx="120" cy="34" r="16" fill="none" stroke="#B08A64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M84 118 c2 -34 14 -52 36 -52 c22 0 34 18 36 52" fill="none" stroke="#B08A64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M96 78 c8 -14 20 -20 24 -18" stroke="#B08A64" stroke-width="6" fill="none" stroke-linecap="round" stroke-dasharray="1 10"/>
+<path d="M60 60 c14 -10 26 -14 34 -12" fill="none" stroke="#6E5B48" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M86 42 L95 47 L89 55" fill="none" stroke="#6E5B48" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="148" y="110" font-family="Noto Sans CJK TC" font-size="13" fill="#6E5B48">再掛肩帶</text>
+</svg></div>
+        <div class="step"><div class="num">2</div><p><b>先套到腰，再上肩帶：</b>衣身定位後，才把肩帶掛上，避免肩帶吃力過度</p></div>
+      </div>
+      <div class="stepcard">
+        <div class="fig"><svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg">
+<circle cx="82" cy="38" r="14" fill="none" stroke="#B08A64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M92 50 c16 10 26 26 30 46 M122 96 l-44 12" fill="none" stroke="#B08A64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M148 70 c-10 2 -18 8 -22 14" fill="none" stroke="#6E5B48" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M132 76 L125 84 L136 88" fill="none" stroke="#6E5B48" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="140" y="48" font-family="Noto Sans CJK TC" font-size="13" fill="#6E5B48">前傾撥整</text>
+</svg></div>
+        <div class="step"><div class="num">3</div><p><b>身體前傾撥整：</b>微微前傾，把胸部撥進罩杯、腋下的肉往前收</p></div>
+      </div>
+      <div class="stepcard">
+        <div class="fig"><svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg">
+<path d="M95 20 c-2 16 -7 24 -10 36 c-4 14 -2 42 5 58 M145 20 c2 16 7 24 10 36 c4 14 2 42 -5 58" fill="none" stroke="#B08A64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M120 26 v84" fill="none" stroke="#B08A64" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 8"/>
+<path d="M104 92 c-2 -12 3 -20 8 -20 M136 92 c2 -12 -3 -20 -8 -20" fill="#E8C9A8" stroke="#B08A64" stroke-width="3.5"/>
+<path d="M86 66 V44 M79 53 L86 44 L93 53" fill="none" stroke="#6E5B48" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M154 66 V44 M147 53 L154 44 L161 53" fill="none" stroke="#6E5B48" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="80" y="128" font-family="Noto Sans CJK TC" font-size="13" fill="#6E5B48">背面撫平</text>
+</svg></div>
+        <div class="step"><div class="num">4</div><p><b>撫平背部：</b>雙手往後把背部布料撫平，不捲邊、不空杯就完成</p></div>
+      </div>
     </div>
 
     <div class="card">
       <h2>🔄 脫的時候</h2>
-      <div class="step"><div class="num">1</div><p><b>反著做一次：</b>從腰際把褲身往下「捲」，捲到大腿再坐下脫</p></div>
-      <div class="step"><div class="num">2</div><p><b>不要抓一點猛拉：</b>整圈布料一起捲下來，單點拉扯最容易勾破</p></div>
+      <div class="stepcard">
+        <div class="fig"><svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg">
+<path d="M85 16 c-2 18 -8 28 -12 40 c-5 14 -2 40 4 56 M155 16 c2 18 8 28 12 40 c5 14 2 40 -4 56" fill="none" stroke="#B08A64" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="120" cy="64" rx="42" ry="9" fill="#EFE3D3" stroke="#B08A64" stroke-width="4"/>
+<ellipse cx="120" cy="74" rx="44" ry="9" fill="#EFE3D3" stroke="#B08A64" stroke-width="4"/>
+<path d="M46 60 V96 M39 87 L46 96 L53 87" fill="none" stroke="#6E5B48" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M194 60 V96 M187 87 L194 96 L201 87" fill="none" stroke="#6E5B48" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="84" y="118" font-family="Noto Sans CJK TC" font-size="13" fill="#6E5B48">整圈往下捲</text>
+</svg></div>
+        <div class="step"><div class="num">1</div><p><b>反著做一次：</b>從腰際把褲身整圈往下「捲」，捲到大腿再坐下脫。不要抓一點猛拉——單點拉扯最容易勾破。</p></div>
+      </div>
     </div>
 
     <div class="card ng">
@@ -161,8 +234,6 @@
     </div>
 
   </div>
-
   <footer>MURO暮若｜有問題請回 LINE 找真人客服</footer>
-
 </body>
 </html>
