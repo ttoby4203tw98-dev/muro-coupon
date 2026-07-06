@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MURO暮若｜退換貨申請</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    background: #F3EAE0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 20px 48px;
+    color: #5A4736;
+  }
+  .brand { font-size: 15px; letter-spacing: 4px; color: #96826F; margin-bottom: 6px; }
+  h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+  .sub { font-size: 13px; color: #96826F; margin-bottom: 20px; }
+
+  .wrap { width: 100%; max-width: 380px; }
+
+  .alert {
+    background: #B08A64; color: #FFF9F1; border-radius: 16px;
+    padding: 18px 20px; margin-bottom: 16px; font-size: 14px; line-height: 1.65;
+  }
+  .alert b { font-size: 15.5px; }
+
+  .card { background: #FFFFFF; border-radius: 16px; padding: 20px; margin-bottom: 16px; }
+  .card h2 { font-size: 16.5px; margin-bottom: 14px; }
+
+  /* 可退/不可退 */
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .col h3 { font-size: 14px; margin-bottom: 8px; text-align: center; }
+  .ok h3 { color: #5C6E42; }
+  .no h3 { color: #A0503C; }
+  .col ul { list-style: none; }
+  .col li {
+    font-size: 13px; line-height: 1.5;
+    border-radius: 10px; padding: 9px 10px; margin-bottom: 8px;
+  }
+  .ok li { background: #EFF3E6; color: #5C6E42; }
+  .no li { background: #F9E9E4; color: #A0503C; }
+
+  .step { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 13px; }
+  .step:last-child { margin-bottom: 0; }
+  .num {
+    flex: none; width: 24px; height: 24px; border-radius: 50%;
+    background: #F3EAE0; color: #B08A64; font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step p { font-size: 14px; line-height: 1.55; color: #6E5B48; }
+  .step p b { color: #5A4736; }
+
+  .tip {
+    background: #F3EAE0; border-radius: 12px; padding: 12px 14px;
+    font-size: 13px; line-height: 1.6; color: #7A6650; margin-top: 14px;
+  }
+
+  .cs { background: #B08A64; border-radius: 16px; padding: 20px; text-align: center; color: #FFF9F1; }
+  .cs h3 { font-size: 17px; margin-bottom: 6px; }
+  .cs p { font-size: 13px; opacity: .9; margin-bottom: 14px; line-height: 1.5; }
+  .cs a {
+    display: inline-block; background: #FFF9F1; color: #5A4736; text-decoration: none;
+    font-size: 15px; font-weight: 700; padding: 12px 28px; border-radius: 24px;
+  }
+  footer { margin-top: 24px; font-size: 12px; color: #96826F; }
+</style>
+</head>
+<body>
+
+  <div class="brand">MURO 暮若</div>
+  <h1>退換貨申請 📦</h1>
+  <div class="sub">收到貨請先檢查，有問題我們一定處理</div>
+
+  <div class="wrap">
+
+    <div class="alert">
+      <b>⚠️ 貼身衣物特別提醒</b><br>
+      基於個人衛生考量，內著商品<b>經拆封、試穿、下水後即無法退換</b>（瑕疵品除外）。收到貨請先隔著包裝確認款式尺寸，再決定是否拆封。
+    </div>
+
+    <div class="card">
+      <h2>🔍 先看看符不符合</h2>
+      <div class="grid">
+        <div class="col ok">
+          <h3>✓ 可以退換</h3>
+          <ul>
+            <li>商品有瑕疵、破損</li>
+            <li>寄錯商品／尺寸／顏色</li>
+            <li>未拆封且吊牌標籤完整</li>
+            <li>在蝦皮保障期內提出</li>
+          </ul>
+        </div>
+        <div class="col no">
+          <h3>✗ 無法退換</h3>
+          <ul>
+            <li>已試穿、穿著或下水</li>
+            <li>吊牌、包裝已拆除毀損</li>
+            <li>超過蝦皮申請期限</li>
+            <li>人為造成的損壞</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📋 申請流程（蝦皮訂單）</h2>
+      <div class="step"><div class="num">1</div><p><b>拍照存證：</b>收到後盡快拍下商品狀況（瑕疵處特寫＋包裝外觀），這是加速處理的關鍵</p></div>
+      <div class="step"><div class="num">2</div><p><b>先聊聊告訴我們：</b>到蝦皮賣場點「聊聊」說明狀況並附照片，多數問題當天就能給你方案</p></div>
+      <div class="step"><div class="num">3</div><p><b>蝦皮申請退貨退款：</b>訂單頁 →「退貨/退款」→ 選擇原因並上傳照片送出</p></div>
+      <div class="step"><div class="num">4</div><p><b>寄回商品：</b>依蝦皮指示寄回（請保留完整包裝與吊牌），退款由蝦皮系統原路退回</p></div>
+      <div class="tip">💡 請務必在蝦皮訂單「完成訂單」前申請；點了完成訂單，系統就無法再走退貨流程囉。</div>
+    </div>
+
+    <div class="card">
+      <h2>🔄 尺寸不合想換尺寸？</h2>
+      <div class="step"><div class="num">1</div><p><b>不要拆吊牌：</b>試穿前先比對尺寸表，若明顯不合，保持吊牌完整</p></div>
+      <div class="step"><div class="num">2</div><p><b>聊聊找我們：</b>說「我要換尺寸」＋訂單編號，客服會告訴你最快的換貨方式</p></div>
+      <div class="step"><div class="num">3</div><p><b>寄回換新：</b>確認庫存後寄回原商品，換的尺寸馬上出貨</p></div>
+    </div>
+
+    <div class="cs">
+      <h3>不確定能不能退？</h3>
+      <p>直接問最快，附上照片與訂單編號<br>真人客服為你判斷處理 💬</p>
+      <a href="https://shopee.tw/shop/681338843" target="_blank">私訊蝦皮聊聊</a>
+    </div>
+
+  </div>
+
+  <footer>MURO暮若｜也可以回 LINE 對話找真人客服</footer>
+
+</body>
+</html>
