@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MURO暮若｜專屬優惠券</title>
 <style>
-  /* ====== 改這裡：優惠碼與賣場連結 ====== */
-  /* 優惠碼在下方 <span id="code"> 裡改；賣場連結在「前往蝦皮賣場」按鈕的 href 改 */
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
@@ -22,34 +19,46 @@
   .brand { font-size: 15px; letter-spacing: 4px; color: #96826F; margin-bottom: 6px; }
   h1 { font-size: 22px; font-weight: 700; margin-bottom: 24px; }
 
-  /* 優惠券卡片 */
   .coupon {
     width: 100%;
     max-width: 360px;
-    background: #B08A64;
     border-radius: 20px;
-    padding: 28px 24px 24px;
-    color: #FFF9F1;
+    padding: 24px 24px 22px;
     text-align: center;
     position: relative;
-    box-shadow: 0 8px 24px rgba(90,71,54,.18);
+    box-shadow: 0 8px 24px rgba(90,71,54,.15);
+    margin-bottom: 20px;
   }
-  /* 券的缺口 */
   .coupon::before, .coupon::after {
     content: "";
     position: absolute;
     width: 26px; height: 26px;
     background: #F3EAE0;
     border-radius: 50%;
-    top: 58%;
+    top: 56%;
   }
   .coupon::before { left: -13px; }
   .coupon::after { right: -13px; }
 
-  .coupon .off { font-size: 44px; font-weight: 800; letter-spacing: 1px; }
-  .coupon .off small { font-size: 20px; font-weight: 700; }
-  .coupon .desc { font-size: 14px; opacity: .9; margin-top: 4px; }
-  .divider { border-top: 2px dashed rgba(255,249,241,.5); margin: 20px 0 16px; }
+  /* 新客券：奶茶棕 */
+  .new { background: #B08A64; color: #FFF9F1; }
+  /* 回購券：深棕 */
+  .vip { background: #6E5B48; color: #FFF9F1; }
+
+  .tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 12px;
+    background: rgba(255,249,241,.22);
+    margin-bottom: 10px;
+  }
+  .off { font-size: 42px; font-weight: 800; letter-spacing: 1px; }
+  .off small { font-size: 19px; font-weight: 700; }
+  .desc { font-size: 13.5px; opacity: .9; margin-top: 4px; }
+  .divider { border-top: 2px dashed rgba(255,249,241,.5); margin: 18px 0 14px; }
 
   .code-row {
     display: flex;
@@ -60,7 +69,7 @@
     padding: 6px 6px 6px 16px;
   }
   #code {
-    font-size: 24px;
+    font-size: 23px;
     font-weight: 800;
     letter-spacing: 3px;
     color: #5A4736;
@@ -79,16 +88,27 @@
   }
   #copyBtn:active { background: #3E3025; }
   #copyBtn.done { background: #7BA05B; }
-  .note { font-size: 12px; opacity: .85; margin-top: 12px; }
+  .note { font-size: 12px; opacity: .85; margin-top: 10px; }
 
-  /* 使用步驟 */
+  .chatBtn {
+    display: block;
+    background: #FFF9F1;
+    color: #5A4736;
+    text-decoration: none;
+    font-size: 15.5px;
+    font-weight: 700;
+    padding: 13px;
+    border-radius: 12px;
+  }
+  .chatBtn:active { opacity: .85; }
+
   .steps {
     width: 100%;
     max-width: 360px;
     background: #FFFFFF;
     border-radius: 16px;
     padding: 20px;
-    margin-top: 24px;
+    margin-top: 4px;
   }
   .steps h2 { font-size: 15px; margin-bottom: 14px; color: #5A4736; }
   .step { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
@@ -104,12 +124,11 @@
   }
   .step p { font-size: 14px; line-height: 1.5; color: #6E5B48; }
 
-  /* CTA */
   .cta {
     display: block;
     width: 100%;
     max-width: 360px;
-    margin-top: 24px;
+    margin-top: 20px;
     background: #EE4D2D;
     color: #fff;
     text-decoration: none;
@@ -123,7 +142,6 @@
   .cta:active { opacity: .85; }
   footer { margin-top: 28px; font-size: 12px; color: #96826F; }
 
-  /* 複製成功提示 */
   #toast {
     position: fixed;
     bottom: 40px; left: 50%;
@@ -136,6 +154,7 @@
     opacity: 0;
     pointer-events: none;
     transition: all .3s;
+    z-index: 9;
   }
   #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 </style>
@@ -145,7 +164,9 @@
   <div class="brand">MURO 暮若</div>
   <h1>專屬優惠券 🎁</h1>
 
-  <div class="coupon">
+  <!-- 新客券 -->
+  <div class="coupon new">
+    <div class="tag">新朋友見面禮</div>
     <div class="off">8.8<small> 折</small></div>
     <div class="desc">全館適用｜每人限用一次</div>
     <div class="divider"></div>
@@ -156,15 +177,23 @@
     <div class="note">結帳時於「優惠代碼」欄貼上即可折抵</div>
   </div>
 
-  <div class="steps">
-    <h2>📋 使用方式</h2>
-    <div class="step"><div class="num">1</div><p>點上方「複製」按鈕，複製優惠碼</p></div>
-    <div class="step"><div class="num">2</div><p>點下方按鈕前往蝦皮賣場，商品加入購物車</p></div>
-    <div class="step"><div class="num">3</div><p>結帳頁「優惠代碼」欄位貼上代碼</p></div>
-    <div class="step"><div class="num">4</div><p>確認折抵金額出現，再送出訂單 ✅</p></div>
+  <!-- 回購券 -->
+  <div class="coupon vip">
+    <div class="tag">老朋友回購禮</div>
+    <div class="off">9.5<small> 折</small></div>
+    <div class="desc">回購專屬｜私訊聊聊領取</div>
+    <div class="divider"></div>
+    <a class="chatBtn" href="https://shopee.tw/shop/681338843" target="_blank">💬 私訊聊聊，領取回購券</a>
+    <div class="note">進賣場點「聊聊」，告訴我們「我要回購優惠」</div>
   </div>
 
-  <!-- 改成你的蝦皮賣場網址 -->
+  <div class="steps">
+    <h2>📋 使用方式</h2>
+    <div class="step"><div class="num">1</div><p><b>新朋友：</b>複製上方優惠碼，結帳頁「優惠代碼」欄貼上</p></div>
+    <div class="step"><div class="num">2</div><p><b>回購的老朋友：</b>私訊聊聊說「我要回購優惠」，小編直接把券發給你</p></div>
+    <div class="step"><div class="num">3</div><p>確認折抵金額出現後，再送出訂單 ✅</p></div>
+  </div>
+
   <a class="cta" href="https://shopee.tw/shop/681338843" target="_blank">🛒 前往蝦皮賣場</a>
 
   <footer>MURO暮若｜有問題請回 LINE 找真人客服</footer>
